@@ -18,7 +18,7 @@
 
 float aspect = 1; //Stosunek szerokoúci do wysokoúci okna
 
-				  //Uchwyty na shadery
+//Uchwyty na shadery
 /*Shader* shaderProgram = config::defaultShader;*/ //Wskaünik na obiekt reprezentujπcy program cieniujπcy.
 Camera* camera = new Camera(config::cameraX, config::cameraY, config::cameraZ);
 
@@ -43,9 +43,9 @@ std::map<std::string, Texture*> prepareTextures() {
 	textures.insert(std::pair < std::string, Texture*>("clock", new Texture("Textures/zegar.png")));
 	//textures.insert(std::pair < std::string, Texture*>("bird", new Texture("Textures/bird.png")));
 	textures.insert(std::pair < std::string, Texture*>("gold", new Texture("Textures/gold.png")));
-	textures.insert(std::pair < std::string, Texture*>("backstage", new Texture("Textures/backstage.png")));
-	textures.insert(std::pair < std::string, Texture*>("woodentable", new Texture("Textures/woodentable.png")));
-	textures.insert(std::pair < std::string, Texture*>("tiger", new Texture("Textures/carpet.png")));
+	//textures.insert(std::pair < std::string, Texture*>("backstage", new Texture("Textures/backstage.png")));
+	//textures.insert(std::pair < std::string, Texture*>("woodentable", new Texture("Textures/woodentable.png")));
+	textures.insert(std::pair < std::string, Texture*>("tiger", new Texture("Textures/gold.png"))); //?zmienic tiger
 	textures.insert(std::pair < std::string, Texture*>("fur", new Texture("Textures/fur.png")));
 	
 	return textures;
@@ -69,12 +69,12 @@ std::map<std::string, Model*> prepareModels(std::map<std::string, Shader*> shade
 	models.insert(std::pair<std::string, Model*>("SecIndicator", new SecIndicator(shaders["default"], textures["black"], models["ClockFace"]->getPosition(), seconds * 6)));
 	models.insert(std::pair<std::string, Model*>("Clock", new Clock(shaders["default"], textures["clock"], glm::vec3(0, 0.0f, 0))));
 	//models.insert(std::pair<std::string, Model*>("Bird", new Bird(shaders["default"], textures["bird"], glm::vec3(-0.5, 4.2f, 0.1))));
-	models.insert(std::pair<std::string, Model*>("DoorLeft", new Clockdoorleft(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, -0.3))));
-	models.insert(std::pair<std::string, Model*>("DoorRight", new Clockdoor(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, 0.4))));
-	models.insert(std::pair<std::string, Model*>("Backstage", new Backstage(shaders["default"], textures["backstage"], glm::vec3(0.0f, 0.0f, 0)))); 
-	models.insert(std::pair<std::string, Model*>("Chair", new Chair(shaders["default"], textures["woodentable"], glm::vec3(-10.0f, 0.0f, 16.5))));
-	models.insert(std::pair<std::string, Model*>("Table", new Table(shaders["default"], textures["woodentable"], glm::vec3(-12.0f, 0.0f, 20.5))));
-	models.insert(std::pair<std::string, Model*>("Wardrobe", new Wardrobe(shaders["default"], textures["woodentable"], glm::vec3(7.5f, 0.0f, 26.2))));
+	//.insert(std::pair<std::string, Model*>("DoorLeft", new Clockdoorleft(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, -0.3))));
+	//models.insert(std::pair<std::string, Model*>("DoorRight", new Clockdoor(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, 0.4))));
+	//models.insert(std::pair<std::string, Model*>("Backstage", new Backstage(shaders["default"], textures["backstage"], glm::vec3(0.0f, 0.0f, 0)))); 
+	//models.insert(std::pair<std::string, Model*>("Chair", new Chair(shaders["default"], textures["woodentable"], glm::vec3(-10.0f, 0.0f, 16.5))));
+	//models.insert(std::pair<std::string, Model*>("Table", new Table(shaders["default"], textures["woodentable"], glm::vec3(-12.0f, 0.0f, 20.5))));
+	//models.insert(std::pair<std::string, Model*>("Wardrobe", new Wardrobe(shaders["default"], textures["woodentable"], glm::vec3(7.5f, 0.0f, 26.2))));
 	models.insert(std::pair<std::string, Model*>("Carpet", new Carpet(shaders["fur"], textures["tiger"], textures["fur"], glm::vec3(0.0f, 0.0f, 0))));
 	models.insert(std::pair<std::string, Model*>("Lamp", new Lamp(shaders["default"], shaders["light"], textures["gold"], glm::vec3(5.0f, 15.0f, 5.0f))));
 
@@ -91,7 +91,7 @@ void updateShaders(std::map<std::string, Shader*> shaders, Lamp* lamp) {
 void error_callback(int error, const char* description) {
 	fputs(description, stderr);
 }
-
+/*
 void operateDoors(std::map<std::string, Model*>& models) {
 	if (models["DoorRight"]->getStatusOperate()) {
 		models["DoorRight"]->changeOperate();
@@ -116,16 +116,16 @@ void operateDoors(std::map<std::string, Model*>& models) {
 		if (models["Bird"]->getIteration() > config::birdIterations) {
 			models["Bird"]->changeOperate();
 			models["DoorRight"]->changeOpen();
-			models["DoorLeft"]->changeOpen();
-			models["DoorRight"]->changeOperate();
-			models["DoorLeft"]->changeOperate();
-			models["Bird"]->clearIteration();
+			models["doorleft"]->changeopen();
+			models["doorright"]->changeoperate();
+			models["doorleft"]->changeoperate();
+			models["bird"]->cleariteration();
 		}
 		else {
 			models["Bird"]->changeDirection();
 		}
-	}*/
-}
+	}
+}*/
 
 //Procedura obs≥ugi klawiatury
 void key_callback(GLFWwindow* window, int key,
@@ -210,7 +210,7 @@ void drawScene(GLFWwindow* window, std::map<std::string, Model*>& models) {
 		models["HoursIndicator"]->updateAngle(1/float(120));
 		models["SecIndicator"]->updateAngle(6.0f);
 		models["MinIndicator"]->updateAngle(0.1f);
-		operateDoors(models);
+		//operateDoors(models);
 		glfwSetTime(0); //Wyzeruj licznik czasu
 	}
 	

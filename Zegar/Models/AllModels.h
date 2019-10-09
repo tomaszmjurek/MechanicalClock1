@@ -10,7 +10,7 @@
 #include "Models/Lamp/Lamp.h"
 #include "Models/MinIndicator/MinIndicator.h"
 #include "Models/Clock/Clock.h"
-#include "Models/Bird/Bird.h"
+//#include "Models/Bird/Bird.h"
 #include "Models/Clockdoor/Clockdoor.h"
 #include "Models/Clockdoorleft/Clockdoorleft.h"
 #include "Models/MinIndicator/MinIndicator.h"

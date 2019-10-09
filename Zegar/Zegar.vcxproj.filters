@@ -194,9 +194,6 @@
     <ClCompile Include="Models\Clock\Clock.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Models\Bird\Bird.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Models\Clockdoor\Clockdoor.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>

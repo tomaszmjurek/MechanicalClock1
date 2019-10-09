@@ -69,7 +69,6 @@
     <ClCompile Include="Classes\sources\Texture.cpp" />
     <ClCompile Include="config.cpp" />
     <ClCompile Include="Models\Bulb\Bulb.cpp" />
-    <ClCompile Include="Models\Bird\Bird.cpp" />
     <ClCompile Include="Models\Carpet\Carpet.cpp" />
     <ClCompile Include="Models\Chair\Chair.cpp" />
     <ClCompile Include="Models\Clockdoorleft\Clockdoorleft.cpp" />
