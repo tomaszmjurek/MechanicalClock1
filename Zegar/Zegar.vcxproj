@@ -59,6 +59,7 @@
     <ClInclude Include="Models\Table\TableInternal.h" />
     <ClInclude Include="Models\Wardrobe\Wardrobe.h" />
     <ClInclude Include="Models\Wardrobe\WardrobeInternal.h" />
+    <ClInclude Include="Models\Sphere\Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\sources\Camera.cpp" />
@@ -84,6 +85,7 @@
     <ClCompile Include="Models\SecIndicator\SecIndicator.cpp" />
     <ClCompile Include="Models\Table\Table.cpp" />
     <ClCompile Include="Models\Wardrobe\Wardrobe.cpp" />
+    <ClCompile Include="Models\Sphere\Sphere.cpp" />
     <ClCompile Include="Zegar.cpp" />
   </ItemGroup>
   <ItemGroup>

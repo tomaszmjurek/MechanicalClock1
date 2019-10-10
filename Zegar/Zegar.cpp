@@ -43,7 +43,7 @@ std::map<std::string, Texture*> prepareTextures() {
 	textures.insert(std::pair < std::string, Texture*>("clock", new Texture("Textures/zegar.png")));
 	//textures.insert(std::pair < std::string, Texture*>("bird", new Texture("Textures/bird.png")));
 	textures.insert(std::pair < std::string, Texture*>("gold", new Texture("Textures/gold.png")));
-	//textures.insert(std::pair < std::string, Texture*>("backstage", new Texture("Textures/backstage.png")));
+	textures.insert(std::pair < std::string, Texture*>("backstage", new Texture("Textures/space.png")));
 	//textures.insert(std::pair < std::string, Texture*>("woodentable", new Texture("Textures/woodentable.png")));
 	textures.insert(std::pair < std::string, Texture*>("tiger", new Texture("Textures/gold.png"))); //?zmienic tiger
 	textures.insert(std::pair < std::string, Texture*>("fur", new Texture("Textures/fur.png")));
@@ -59,6 +59,9 @@ std::map<std::string, Model*> prepareModels(std::map<std::string, Shader*> shade
 	int minutes = aTime.tm_min;
 	int seconds = aTime.tm_sec;
 	std::map<std::string, Model*> models;
+
+	//Models::Sphere mySphere(2, 36, 36);
+	//gluSphere()
 
 	models.insert(std::pair<std::string, Model*>("Gear", new Gear(shaders["default"], textures["brushedMetal"], glm::vec3(0, 2.8f, -0.5f), 1.0f, 30.0f)));
 	models.insert(std::pair<std::string, Model*>("BiggerGear", new Gear(shaders["default"], textures["brushedMetal"], glm::vec3(0, 2.8f, 0.5f), 1.2f, 0.0f)));
@@ -77,6 +80,7 @@ std::map<std::string, Model*> prepareModels(std::map<std::string, Shader*> shade
 	//models.insert(std::pair<std::string, Model*>("Wardrobe", new Wardrobe(shaders["default"], textures["woodentable"], glm::vec3(7.5f, 0.0f, 26.2))));
 	models.insert(std::pair<std::string, Model*>("Carpet", new Carpet(shaders["fur"], textures["tiger"], textures["fur"], glm::vec3(0.0f, 0.0f, 0))));
 	models.insert(std::pair<std::string, Model*>("Lamp", new Lamp(shaders["default"], shaders["light"], textures["gold"], glm::vec3(5.0f, 15.0f, 5.0f))));
+	//models.insert(std::pair<std::string, Model*>("Sphere", new Sphere(1, 12, 12)));
 
 	return models;
 }
@@ -161,7 +165,7 @@ void windowResize(GLFWwindow* window, int width, int height) {
 //Procedura inicjuj¹ca
 void initOpenGLProgram(GLFWwindow* window) {
 	//************Tutaj umieszczaj kod, który nale¿y wykonaæ raz, na pocz¹tku programu************
-	glClearColor(0.0f, 0.5f, 0.0f, 1);
+	glClearColor(0.0f, 0.5f, 0.5f, 1);
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie Z-Bufora
 	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurê obs³ugi klawiatury
 	glfwSetFramebufferSizeCallback(window, windowResize); //Zarejestruj procedurê obs³ugi zmiany rozmiaru bufora ramki

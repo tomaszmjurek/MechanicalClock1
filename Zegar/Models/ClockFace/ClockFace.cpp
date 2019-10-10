@@ -1,6 +1,7 @@
 #include "Models/ClockFace/ClockFace.h"
 #include "Models/ClockFace/ClockFaceInternal.h"
 
+// hmmm no nie widze tu czegos takiego
 ClockFace::ClockFace(Shader* shader, Texture* tex, glm::vec3 pos) {
 	setName(ClockFaceInternal::name);
 	setVertices(ClockFaceInternal::vertices);

@@ -20,4 +20,5 @@
 #include "Models/Table/Table.h"
 #include "Models/Wardrobe/Wardrobe.h"
 #include "Models/Carpet/Carpet.h"
+#include "Models/Sphere/Sphere.h"
 

@@ -8,5 +8,5 @@ namespace config {
 	float cameraMoveAngleChange = 15.0f;
 	float cameraMoveFactor = 0.05f;
 	std::string modelPath = "Models/";
-	int birdIterations = 4;
+	//int birdIterations = 4;
 }
