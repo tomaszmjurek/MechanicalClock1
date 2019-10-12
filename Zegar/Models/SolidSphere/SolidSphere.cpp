@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES
+/*#define _USE_MATH_DEFINES
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <vector>
@@ -73,3 +73,4 @@ public:
 		glPopMatrix();
 	}
 };
+*/

@@ -1,12 +1,12 @@
 #include "Models/Backstage/Backstage.h"
-#include "Models/Backstage/BackstageInternal.h"
+#include "Models/Sphere/SphereInternal.h"
 
 Backstage::Backstage(Shader* shader, Texture* tex, glm::vec3 pos) {
-	setName(BackstageInternal::name);
-	setVertices(BackstageInternal::vertices);
-	setVertexNormals(BackstageInternal::vertexNormals);
-	setTexCoords(BackstageInternal::texCoords);
-	setVertexCount(BackstageInternal::vertexCount);
+	setName(SphereInternal::name);
+	setVertices(SphereInternal::vertices);
+	setVertexNormals(SphereInternal::vertexNormals);
+	setTexCoords(SphereInternal::texCoords);
+	setVertexCount(SphereInternal::vertexCount);
 	setShader(shader);
 	setPostiotion(pos);
 	texture = tex;

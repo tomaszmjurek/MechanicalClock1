@@ -3,7 +3,7 @@
 # define M_PI           3.14159265358979323846
 
 	Sphere::Sphere() {
-		buildSphere(1, 12, 12);
+		buildSphere(10, 12, 12);
 	}
 
 	Sphere::Sphere(Shader* shader, Texture* tex, glm::vec3 pos) {

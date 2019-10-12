@@ -55,6 +55,8 @@
     <ClInclude Include="Models\Pendulum\Pendulum.h" />
     <ClInclude Include="Models\Pendulum\PendulumInternal.h" />
     <ClInclude Include="Models\SecIndicator\SecIndicator.h" />
+    <ClInclude Include="Models\Sphere\SphereInternal.h" />
+    <ClInclude Include="Models\Sphere\SphereInternal2.h" />
     <ClInclude Include="Models\Table\Table.h" />
     <ClInclude Include="Models\Table\TableInternal.h" />
     <ClInclude Include="Models\Wardrobe\Wardrobe.h" />

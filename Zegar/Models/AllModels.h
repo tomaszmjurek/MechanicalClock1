@@ -21,5 +21,5 @@
 #include "Models/Wardrobe/Wardrobe.h"
 #include "Models/Carpet/Carpet.h"
 #include "Models/Sphere/Sphere.h"
-#include "Models/SolidSphere/SolidSphere.cpp"
+//#include "Models/SolidSphere/SolidSphere.cpp"
 
