@@ -37,15 +37,12 @@ std::map<std::string, Shader*> prepareShaders() {
 std::map<std::string, Texture*> prepareTextures() {
 	std::map<std::string, Texture*> textures;
 
-	textures.insert(std::pair<std::string, Texture*>("brushedMetal", new Texture("Textures/brushed-metal.png")));
-	textures.insert(std::pair < std::string, Texture*>("black", new Texture("Textures/maxresdefault.png")));
+	textures.insert(std::pair<std::string, Texture*>("brushedMetal", new Texture("Textures/metal-circle.png")));
 	textures.insert(std::pair < std::string, Texture*>("clockFace", new Texture("Textures/clockface.png")));
 	textures.insert(std::pair < std::string, Texture*>("clock", new Texture("Textures/zegar.png")));
 	textures.insert(std::pair < std::string, Texture*>("black", new Texture("Textures/black.png")));
 	textures.insert(std::pair < std::string, Texture*>("gold", new Texture("Textures/gold.png")));
-	//textures.insert(std::pair < std::string, Texture*>("backstage", new Texture("Textures/backstage.png")));
-	textures.insert(std::pair < std::string, Texture*>("space", new Texture("Textures/space.png"))); //?
-	textures.insert(std::pair < std::string, Texture*>("tiger", new Texture("Textures/gold.png"))); //?zmienic tiger
+	textures.insert(std::pair < std::string, Texture*>("space", new Texture("Textures/space.png")));
 	textures.insert(std::pair < std::string, Texture*>("fur", new Texture("Textures/fur.png")));
 	
 	return textures;
@@ -60,9 +57,6 @@ std::map<std::string, Model*> prepareModels(std::map<std::string, Shader*> shade
 	int seconds = aTime.tm_sec;
 	std::map<std::string, Model*> models;
 
-	//Models::Sphere mySphere(2, 36, 36);
-	//gluSphere()
-
 	models.insert(std::pair<std::string, Model*>("Gear", new Gear(shaders["default"], textures["brushedMetal"], glm::vec3(0, 2.8f, -0.5f), 1.0f, 30.0f)));
 	models.insert(std::pair<std::string, Model*>("BiggerGear", new Gear(shaders["default"], textures["brushedMetal"], glm::vec3(0, 2.8f, 0.5f), 1.2f, 0.0f)));
 	models.insert(std::pair<std::string, Model*>("Pendulum", new Pendulum(shaders["default"], textures["brushedMetal"], glm::vec3(0.2f, 2.8f, 0), 30.0f)));
@@ -71,24 +65,16 @@ std::map<std::string, Model*> prepareModels(std::map<std::string, Shader*> shade
 	models.insert(std::pair<std::string, Model*>("MinIndicator", new MinIndicator(shaders["default"], textures["black"], models["ClockFace"]->getPosition(), minutes * 6 + seconds * 0.1 )));
 	models.insert(std::pair<std::string, Model*>("SecIndicator", new SecIndicator(shaders["default"], textures["black"], models["ClockFace"]->getPosition(), seconds * 6)));
 	models.insert(std::pair<std::string, Model*>("Clock", new Clock(shaders["default"], textures["clock"], glm::vec3(0, 0.0f, 0))));
-	//models.insert(std::pair<std::string, Model*>("Bird", new Bird(shaders["default"], textures["bird"], glm::vec3(-0.5, 4.2f, 0.1))));
-	//models.insert(std::pair<std::string, Model*>("DoorLeft", new Clockdoorleft(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, -0.3))));
-	//models.insert(std::pair<std::string, Model*>("DoorRight", new Clockdoor(shaders["default"], textures["clock"], glm::vec3(-0.9f, 4.2f, 0.4))));
 	models.insert(std::pair<std::string, Model*>("Sphere", new Backstage(shaders["default"], textures["space"], glm::vec3(0.0f, 0.0f, 0))));
-		//?models.insert(std::pair<std::string, Model*>("Sphere", new Sphere(shaders["default"], textures["space"], glm::vec3(0.0f, 0.0f, 0))));
-	//models.insert(std::pair<std::string, Model*>("Chair", new Chair(shaders["default"], textures["woodentable"], glm::vec3(-10.0f, 0.0f, 16.5))));
-	//models.insert(std::pair<std::string, Model*>("Table", new Table(shaders["default"], textures["woodentable"], glm::vec3(-12.0f, 0.0f, 20.5))));
-	//models.insert(std::pair<std::string, Model*>("Wardrobe", new Wardrobe(shaders["default"], textures["woodentable"], glm::vec3(7.5f, 0.0f, 26.2))));
-	models.insert(std::pair<std::string, Model*>("Carpet", new Carpet(shaders["fur"], textures["tiger"], textures["fur"], glm::vec3(0.0f, 0.0f, 0))));
-	models.insert(std::pair<std::string, Model*>("Lamp", new Lamp(shaders["default"], shaders["light"], textures["black"], glm::vec3(5.0f, 15.0f, 5.0f))));
-
+	models.insert(std::pair<std::string, Model*>("Carpet", new Carpet(shaders["fur"], textures["gold"], textures["fur"], glm::vec3(0.0f, 0.0f, 0))));
+	models.insert(std::pair<std::string, Model*>("Star", new Star(shaders["default"], shaders["light"], textures["black"], glm::vec3(5.0f, 15.0f, 5.0f))));
 
 	return models;
 }
 
-void updateShaders(std::map<std::string, Shader*> shaders, Lamp* lamp) {
+void updateShaders(std::map<std::string, Shader*> shaders, Star* stars) {
 	for (std::map<std::string, Shader*>::iterator it = shaders.begin(); it != shaders.end(); it++) {
-		it->second->setLights(lamp->lightPosition());
+		it->second->setLights(stars->lightPosition());
 	}
 }
 
@@ -96,41 +82,6 @@ void updateShaders(std::map<std::string, Shader*> shaders, Lamp* lamp) {
 void error_callback(int error, const char* description) {
 	fputs(description, stderr);
 }
-/*
-void operateDoors(std::map<std::string, Model*>& models) {
-	if (models["DoorRight"]->getStatusOperate()) {
-		models["DoorRight"]->changeOperate();
-		models["DoorLeft"]->changeOperate();
-		if (models["DoorRight"]->getStatus()) {  //tylko jak otwarte
-			//models["Bird"]->changeOperate();
-		}
-	}
-
-	if (doorOperate) {
-		doorOperate = false;
-		if (!models["DoorRight"]->getStatusOperate() && !models["DoorRight"]->getStatus()) {
-			models["DoorRight"]->changeOpen();
-			models["DoorLeft"]->changeOpen();
-			models["DoorRight"]->changeOperate();
-			models["DoorLeft"]->changeOperate();
-		}
-	}
-	/*
-	if (models["Bird"]->getStatus()) {
-		models["Bird"]->incrementIteration();
-		if (models["Bird"]->getIteration() > config::birdIterations) {
-			models["Bird"]->changeOperate();
-			models["DoorRight"]->changeOpen();
-			models["doorleft"]->changeopen();
-			models["doorright"]->changeoperate();
-			models["doorleft"]->changeoperate();
-			models["bird"]->cleariteration();
-		}
-		else {
-			models["Bird"]->changeDirection();
-		}
-	}
-}*/
 
 //Procedura obs³ugi klawiatury
 void key_callback(GLFWwindow* window, int key,
@@ -145,9 +96,6 @@ void key_callback(GLFWwindow* window, int key,
 		if (key == GLFW_KEY_DOWN) {
 			camera->updateMoveAngle(-config::cameraMoveAngleChange);
 			camera->updatePostion(-cos(3.14f * camera->getRotationAngle() / 180), -config::cameraMoveFactor * sin(camera->getMoveAngle() * 3.14 / 180), -sin(3.14f * camera->getRotationAngle() / 180));
-		}
-		if (key == GLFW_KEY_A && !doorOperate) {
-			doorOperate = true;
 		}
 	}
 }
@@ -169,7 +117,6 @@ void windowResize(GLFWwindow* window, int width, int height) {
 void initOpenGLProgram(GLFWwindow* window) {
 	//************Tutaj umieszczaj kod, który nale¿y wykonaæ raz, na pocz¹tku programu************
 	
-
 	glClearColor(0.0f, 0.0f, 0.0f, 1);
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie Z-Bufora
 	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurê obs³ugi klawiatury
@@ -193,7 +140,6 @@ void freeOpenGLProgram(std::map<std::string, Model*>& models, std::map<std::stri
 	for (std::map<std::string, Texture*>::iterator it = textures.begin(); it != textures.end(); it++) {
 		delete it->second;
 	}
-
 	models.clear();
 	shaders.clear();
 	textures.clear();
@@ -219,7 +165,6 @@ void drawScene(GLFWwindow* window, std::map<std::string, Model*>& models) {
 		models["HoursIndicator"]->updateAngle(1/float(120));
 		models["SecIndicator"]->updateAngle(6.0f);
 		models["MinIndicator"]->updateAngle(0.1f);
-		//operateDoors(models);
 		glfwSetTime(0); //Wyzeruj licznik czasu
 	}
 	
@@ -266,11 +211,11 @@ int main(void) {
 	textures = prepareTextures();
 	models = prepareModels(shaders, textures);
 
-	updateShaders(shaders, dynamic_cast<Lamp*>(models["Lamp"]));
+	updateShaders(shaders, dynamic_cast<Star*>(models["Star"]));
 
 	glfwSetTime(0); //Wyzeruj licznik czasu
 
-					//G³ówna pêtla
+	//G³ówna pêtla
 	while (!glfwWindowShouldClose(window)) { //Tak d³ugo jak okno nie powinno zostaæ zamkniête
 		drawScene(window, models); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.

@@ -29,12 +29,6 @@
     <ClInclude Include="Models\Bird\Bird.h" />
     <ClInclude Include="Models\Carpet\Carpet.h" />
     <ClInclude Include="Models\Carpet\CarpetInternal.h" />
-    <ClInclude Include="Models\Chair\Chair.h" />
-    <ClInclude Include="Models\Chair\ChairInternal.h" />
-    <ClInclude Include="Models\Clockdoorleft\Clockdoorleft.h" />
-    <ClInclude Include="Models\Clockdoorleft\ClockdoorleftInternal.h" />
-    <ClInclude Include="Models\Clockdoor\Clockdoor.h" />
-    <ClInclude Include="Models\Clockdoor\ClockdoorInternal.h" />
     <ClInclude Include="Models\Bulb\Bulb.h" />
     <ClInclude Include="Models\Bulb\BulbInternal.h" />
     <ClInclude Include="Models\Backstage\Backstage.h" />
@@ -45,11 +39,10 @@
     <ClInclude Include="Models\Clock\ClockInternal.h" />
     <ClInclude Include="Models\Gear\Gear.h" />
     <ClInclude Include="Models\Gear\GearInternal.h" />
-    <ClInclude Include="Models\Glass\GlassInternal.h" />
     <ClInclude Include="Models\HoursIndicator\HoursIndicator.h" />
     <ClInclude Include="Models\HoursIndicator\HoursIndicatorInternal.h" />
-    <ClInclude Include="Models\Lamp\Lamp.h" />
-    <ClInclude Include="Models\Lamp\LampInternal.h" />
+    <ClInclude Include="Models\Star\Star.h" />
+    <ClInclude Include="Models\Star\StarInternal.h" />
     <ClInclude Include="Models\MinIndicator\MinIndicator.h" />
     <ClInclude Include="Models\Model.h" />
     <ClInclude Include="Models\Pendulum\Pendulum.h" />
@@ -57,12 +50,7 @@
     <ClInclude Include="Models\SecIndicator\SecIndicator.h" />
     <ClInclude Include="Models\Sphere\SphereInternal.h" />
     <ClInclude Include="Models\Sphere\SphereInternal2.h" />
-    <ClInclude Include="Models\Table\Table.h" />
-    <ClInclude Include="Models\Table\TableInternal.h" />
-    <ClInclude Include="Models\Wardrobe\Wardrobe.h" />
-    <ClInclude Include="Models\Wardrobe\WardrobeInternal.h" />
     <ClInclude Include="Models\Sphere\Sphere.h" />
-    <ClInclude Include="Models\SolidSphere\SolidSphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\sources\Camera.cpp" />
@@ -74,22 +62,16 @@
     <ClCompile Include="config.cpp" />
     <ClCompile Include="Models\Bulb\Bulb.cpp" />
     <ClCompile Include="Models\Carpet\Carpet.cpp" />
-    <ClCompile Include="Models\Chair\Chair.cpp" />
-    <ClCompile Include="Models\Clockdoorleft\Clockdoorleft.cpp" />
-    <ClCompile Include="Models\Clockdoor\Clockdoor.cpp" />
     <ClCompile Include="Models\Backstage\Backstage.cpp" />
     <ClCompile Include="Models\ClockFace\ClockFace.cpp" />
     <ClCompile Include="Models\Clock\Clock.cpp" />
     <ClCompile Include="Models\Gear\Gear.cpp" />
     <ClCompile Include="Models\HoursIndicator\HoursIndicator.cpp" />
-    <ClCompile Include="Models\Lamp\Lamp.cpp" />
+    <ClCompile Include="Models\Star\Star.cpp" />
     <ClCompile Include="Models\MinIndicator\MinIndicator.cpp" />
     <ClCompile Include="Models\Pendulum\Pendulum.cpp" />
     <ClCompile Include="Models\SecIndicator\SecIndicator.cpp" />
-    <ClCompile Include="Models\Table\Table.cpp" />
-    <ClCompile Include="Models\Wardrobe\Wardrobe.cpp" />
     <ClCompile Include="Models\Sphere\Sphere.cpp" />
-    <ClCompile Include="Models\SolidSphere\SolidSphere.cpp" />
     <ClCompile Include="Zegar.cpp" />
   </ItemGroup>
   <ItemGroup>
