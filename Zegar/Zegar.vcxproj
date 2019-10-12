@@ -60,6 +60,7 @@
     <ClInclude Include="Models\Wardrobe\Wardrobe.h" />
     <ClInclude Include="Models\Wardrobe\WardrobeInternal.h" />
     <ClInclude Include="Models\Sphere\Sphere.h" />
+    <ClInclude Include="Models\SolidSphere\SolidSphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes\sources\Camera.cpp" />
@@ -86,6 +87,7 @@
     <ClCompile Include="Models\Table\Table.cpp" />
     <ClCompile Include="Models\Wardrobe\Wardrobe.cpp" />
     <ClCompile Include="Models\Sphere\Sphere.cpp" />
+    <ClCompile Include="Models\SolidSphere\SolidSphere.cpp" />
     <ClCompile Include="Zegar.cpp" />
   </ItemGroup>
   <ItemGroup>

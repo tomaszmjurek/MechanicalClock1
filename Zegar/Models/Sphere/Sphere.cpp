@@ -6,8 +6,20 @@
 		buildSphere(1, 12, 12);
 	}
 
-	Sphere::Sphere(float r, float divs1, float divs2) {
-		buildSphere(r, divs1, divs2);
+	Sphere::Sphere(Shader* shader, Texture* tex, glm::vec3 pos) {
+	//setName(TableInternal::name);
+	//setVertices(TableInternal::vertices);
+	//setVertexNormals(TableInternal::vertexNormals);
+	//setTexCoords(TableInternal::texCoords);
+	//setVertexCount(TableInternal::vertexCount);
+	setShader(shader);
+	setPostiotion(pos);
+	texture = tex;
+	//prepareObject();
+	buildSphere(1, 12, 12);
+		
+//		float r, float divs1, float divs2) {
+//		buildSphere(r, divs1, divs2);
 	}
 
 	Sphere::~Sphere() {

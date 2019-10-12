@@ -5,6 +5,7 @@
 //texCoords - texturing coordinates
 
 #include "Models/Model.h"
+#include "Classes/headers/Texture.h"
 
 	using namespace std;
 	using namespace glm;
@@ -13,7 +14,7 @@
 
 	public:
 		Sphere();
-		Sphere(float r, float mainDivs, float tubeDivs);
+		Sphere(Shader* shader, Texture* tex, glm::vec3 pos);
 		~Sphere();
 
 		void drawObject(glm::mat4 mP, glm::mat4 mV);
@@ -24,6 +25,7 @@
 		vector<vec4> internalFaceNormals;
 		vector<vec4> internalVertexNormals;
 		float* normals;
+		Texture* texture;
 
 		inline float d2r(float deg);
 		vec4 generateSpherePoint(float r, float alpha, float beta);
