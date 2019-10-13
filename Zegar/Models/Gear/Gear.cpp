@@ -71,9 +71,8 @@ void Gear::prepareObject() {
 	bufTexCoords = Graphics::makeBuffer(getTexCoords(), getVertexCount(), sizeof(float) * 2);
 
 
-																			   //Zbuduj VAO wi¹¿¹cy atrybuty z konkretnymi VBO
+	//Zbuduj VAO wi¹¿¹cy atrybuty z konkretnymi VBO
 	glGenVertexArrays(1, &vao); //Wygeneruj uchwyt na VAO i zapisz go do zmiennej globalnej
-
 	glBindVertexArray(vao); //Uaktywnij nowo utworzony VAO
 
 	Graphics::assignVBOtoAttribute(getShader(), "vertex", bufVertices, 4); //"vertex" odnosi siê do deklaracji "in vec4 vertex;" w vertex shaderze

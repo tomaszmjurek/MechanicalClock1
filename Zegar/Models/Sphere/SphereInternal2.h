@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 namespace SphereInternal2 {
-	std::string name = "Sphere";
+	std::string name = "Sphere2";
 	int vertexCount = 482;
 	float vertices[] = { 0.000000, 19.737080, -0.000000,
 -0.000000, 19.357838, -3.850513,
